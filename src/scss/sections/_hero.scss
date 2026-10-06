@@ -99,7 +99,7 @@
       background: linear-gradient(90deg, rgba(24, 19, 14, 0.8) 0%, rgba(24, 19, 14, 0.42) 46%, rgba(24, 19, 14, 0.06) 100%),
         linear-gradient(180deg, rgba(24, 19, 14, 0.5) 0%, rgba(24, 19, 14, 0) 24%, rgba(24, 19, 14, 0) 58%, rgba(24, 19, 14, 0.72) 100%);
       @include down($bp-lg) {
-        background: linear-gradient(180deg, rgba(10, 8, 5, 0) calc(100% - 5rem), #0a0805 100%),
+        background: linear-gradient(180deg, rgba(10, 8, 5, 0) 38%, rgba(10, 8, 5, 0.72) 66%, #0a0805 100%),
           linear-gradient(180deg, rgba(10, 8, 5, 0.6) 0%, rgba(10, 8, 5, 0) 16%),
           linear-gradient(180deg, rgba(24, 19, 14, 0.4) 0%, rgba(24, 19, 14, 0.08) 28%, rgba(24, 19, 14, 0.45) 58%, rgba(24, 19, 14, 0.94) 100%);
       }
@@ -247,24 +247,24 @@
       white-space: nowrap;
     }
     &__title {
-      font-size: clamp(1.7rem, 8.6vw, 2.6rem);
+      font-size: clamp(2rem, 11vw, 3.1rem);
       margin-bottom: 0.85rem;
     }
     &__lead {
       font-size: 0.8125rem;
       line-height: 1.55;
       max-width: 19rem;
-      margin-bottom: 1.35rem;
+      margin-bottom: 1.25rem;
     }
     &__cta {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 0.5rem;
       .btn {
-        --h: 42px;
+        --h: 44px;
         justify-content: center;
-        padding: 0 0.5rem;
-        font-size: 0.5938rem;
+        padding: 0 1rem;
+        font-size: 0.625rem;
         letter-spacing: 0.12em;
         width: 100%;
       }
