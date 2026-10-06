@@ -1,0 +1,96 @@
+.btn {
+  --h: 46px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: var(--h);
+  padding: 0 1.5rem;
+  border: 1px solid var(--ink);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.45s var(--ease), border-color 0.45s var(--ease), transform 0.3s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: translateY(101%);
+    transition: transform 0.55s var(--ease-out);
+  }
+  &__arr {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    transition: transform 0.45s var(--ease-out);
+  }
+  @include hover {
+    &::before {
+      transform: translateY(0);
+    }
+    .btn__arr {
+      transform: translateX(5px);
+    }
+  }
+  &:active {
+    transform: scale(0.985);
+  }
+
+  &--primary {
+    background: var(--ink);
+    color: var(--ivory);
+    &::before {
+      background: var(--oak-500);
+    }
+    @include hover {
+      color: var(--ink);
+      border-color: var(--oak-500);
+    }
+  }
+  &--ghost {
+    background: transparent;
+    color: var(--ink);
+    &::before {
+      background: var(--ink);
+    }
+    @include hover {
+      color: var(--ivory);
+    }
+  }
+  &--light {
+    background: var(--ivory);
+    border-color: var(--ivory);
+    color: var(--ink);
+    &::before {
+      background: var(--oak-300);
+    }
+  }
+  &--sm {
+    --h: 40px;
+    padding: 0 1.1rem;
+    font-size: 0.625rem;
+  }
+  &--block {
+    width: 100%;
+  }
+}
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-page="{{page}}">
+<head>
+{{include:head}}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Hari Traders","url":"https://www.haritraders.example/contact.html"}
+</script>
+</head>
+<body class="page-contact">
+{{include:sprite}}
+{{include:nav}}
+
+<main id="main">
+  <section class="cc wrap">
+    <div class="cc__card">
+      <div class="cc__intro">
+        <p class="eyebrow">Contact</p>
+        <h1 class="cc__title" data-reveal="words">Tell us about<br class="d-br"> your space.</h1>
+        <p class="lead" data-fade>Share what you're planning, a single room or a full project, and we'll come back with recommendations, samples and a quote.</p>
+      </div>
+
+      <form class="form cc__form" data-form="contact" novalidate>
+        <h2 class="form__title">Send an enquiry</h2>
+        <div class="form__grid">
+          <div class="field"><label for="c-name">Full name</label><input id="c-name" name="name" type="text" autocomplete="name" required><p class="field__err" aria-live="polite"></p></div>
+          <div class="field"><label for="c-phone">Phone number</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><p class="field__err" aria-live="polite"></p></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required><p class="field__err" aria-live="polite"></p></div>
+          <div class="field"><label for="c-city">City</label><input id="c-city" name="city" type="text" autocomplete="address-level2" required><p class="field__err" aria-live="polite"></p></div>
+          <div class="field field--full"><label for="c-req">Requirement</label>
+            <select id="c-req" name="requirement" required>
+              <option value="">Select a requirement</option>
+              <option>Floor tiles</option><option>Wall tiles</option><option>Bathroom</option><option>Kitchen</option><option>Outdoor / terrace</option><option>Commercial project</option><option>Other</option>
+            </select><p class="field__err" aria-live="polite"></p></div>
+          <div class="field field--full"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="4"></textarea></div>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><span>Send enquiry</span><svg class="btn__arr" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+      </form>
+
+      <div class="cc__info">
+        <ul class="channels">
+          <li data-fade><a href="tel:+910000000000"><span>Call us</span><strong>+91 00000 00000</strong><svg aria-hidden="true"><use href="#i-arrow-ne"/></svg></a></li>
+          <li data-fade><a href="https://wa.me/910000000000" target="_blank" rel="noopener"><span>WhatsApp</span><strong>Chat with us</strong><svg aria-hidden="true"><use href="#i-arrow-ne"/></svg></a></li>
+          <li data-fade><a href="mailto:hello@haritraders.example"><span>Email</span><strong>hello@haritraders.example</strong><svg aria-hidden="true"><use href="#i-arrow-ne"/></svg></a></li>
+        </ul>
+        <div class="visit" data-fade>
+          <h2>Visit the showroom</h2>
+          <address>Showroom address line,<br>City, State, PIN</address>
+          <dl>
+            <div><dt>Mon to Sat</dt><dd>10:00 to 19:00</dd></div>
+            <div><dt>Sunday</dt><dd>By appointment</dd></div>
+          </dl>
+          <p class="visit__note">Opening hours are placeholders, update with your real timings.</p>
+        </div>
+        <p class="follow" data-fade><span>Follow</span><a href="#" rel="noopener">Instagram</a><a href="#" rel="noopener">Pinterest</a><a href="#" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq section">
+    <div class="wrap">
+      <div class="row gy-5">
+        <div class="col-lg-4">
+          <p class="eyebrow eyebrow--num"><span>FAQ</span> Good to know</p>
+          <h2 class="h2" data-reveal="words">Common<br>questions.</h2>
+        </div>
+        <div class="col-lg-7 offset-lg-1">
+          <div class="faq__list">
+            <details data-fade><summary>How do I choose the right tile?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Start in the catalogue: filter by room, colour and finish. Then send us your shortlist and a few photos or a plan, we'll advise on size, finish and quantity.</p></details>
+            <details data-fade><summary>Can I see samples before ordering?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes, ask us about samples in your enquiry, or visit the showroom to see and feel the surfaces in person. (Update this answer with your sampling policy.)</p></details>
+            <details data-fade><summary>How much tile will I need?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Tell us the area and layout and we'll calculate it, including a sensible allowance for cuts and wastage.</p></details>
+            <details data-fade><summary>Do you work with architects and contractors?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Absolutely. We support residential and commercial projects, from specification through to delivery. Mention your project in the enquiry form.</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{include:footer}}
+</body>
+</html>

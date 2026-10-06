@@ -1,0 +1,112 @@
+.wrap {
+  width: min(100% - var(--gut) * 2, 1440px);
+  margin-inline: auto;
+}
+.section {
+  padding-block: clamp(52px, 9vw, 150px);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+.h2 {
+  font-size: clamp(2rem, 3.9vw, 3.5rem);
+}
+.lead {
+  font-size: clamp(0.875rem, 0.5vw + 0.8rem, 1.125rem);
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 34rem;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--oak-700);
+  margin-bottom: 1.5rem;
+  &__rule {
+    width: 2.5rem;
+    height: 1px;
+    background: currentColor;
+  }
+  &--num span {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+  &--light {
+    color: var(--oak-200);
+  }
+}
+
+.section-head {
+  display: grid;
+  gap: 1.25rem 3rem;
+  margin-bottom: clamp(1.5rem, 5vw, 5rem);
+  @include up($bp-lg) {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    .eyebrow {
+      grid-column: 1 / -1;
+      margin-bottom: 0;
+    }
+  }
+  &__cta {
+    justify-self: end;
+    align-self: end;
+  }
+  &__aside {
+    color: var(--ink-2);
+    max-width: 24rem;
+  }
+}
+
+// word-split reveal masks (built by JS)
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  > span {
+    display: inline-block;
+  }
+}
+.sw {
+  display: inline-block;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size 0.5s var(--ease-out);
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s var(--ease-out);
+  }
+  @include hover {
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+    svg {
+      transform: translateX(6px);
+    }
+  }
+}

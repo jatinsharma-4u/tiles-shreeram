@@ -1,0 +1,99 @@
+.coll-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 0.75rem;
+  @include up($bp-md) {
+    gap: 3rem 1.5rem;
+  }
+  @include up($bp-lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4rem 2rem;
+  }
+}
+.coll {
+  display: block;
+  // gentle editorial stagger
+  &:nth-child(even) {
+    margin-top: 2rem;
+    @include up($bp-lg) {
+      margin-top: 0;
+    }
+  }
+  @include up($bp-lg) {
+    &:nth-child(3n + 2) {
+      margin-top: 5rem;
+    }
+    &:nth-child(3n) {
+      margin-top: 2.5rem;
+    }
+  }
+  &__media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--oak-100);
+    img {
+      position: absolute;
+      inset: -6%;
+      width: 112%;
+      height: 112%;
+      max-width: none;
+      object-fit: cover;
+      transition: scale 1.4s var(--ease-out), translate 1.4s var(--ease-out);
+    }
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.1rem;
+    h3 {
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      margin: 0.3rem 0 0.35rem;
+    }
+    p {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+    }
+  }
+  &__n {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    color: var(--oak-700);
+  }
+  &__go {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
+    svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.5s var(--ease-out);
+    }
+    @include down($bp-md) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  @include hover {
+    .coll__media img {
+      translate: -1.5% -1.5%;
+      scale: 1.07;
+    }
+    .coll__go {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--ivory);
+      svg {
+        transform: translateX(3px);
+      }
+    }
+  }
+}

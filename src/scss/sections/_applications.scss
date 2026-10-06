@@ -1,0 +1,178 @@
+.apps {
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+    @include up($bp-lg) {
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 8.8fr);
+      gap: clamp(2rem, 4vw, 4.5rem);
+    }
+  }
+  &__tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: calc(var(--gut) * -1);
+    padding-inline: var(--gut);
+    border-bottom: 1px solid var(--line);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include up($bp-lg) {
+      flex-direction: column;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 0;
+      align-self: start;
+    }
+  }
+  &__tab {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    margin-right: 1.5rem;
+    border-bottom: 1.5px solid transparent;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    transition: color 0.35s var(--ease), border-color 0.35s var(--ease), padding 0.5s var(--ease-out), box-shadow 0.4s;
+    span {
+      display: none;
+    }
+    &[aria-selected='true'] {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+    @include up($bp-lg) {
+      justify-content: space-between;
+      margin-right: 0;
+      border-bottom: 1px solid var(--line-strong);
+      padding: 1.35rem 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2vw, 1.875rem);
+      letter-spacing: -0.03em;
+      text-transform: none;
+      span {
+        display: inline;
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        letter-spacing: 0.18em;
+      }
+      &[aria-selected='true'] {
+        padding-left: 1.25rem;
+        border-bottom-color: var(--line-strong);
+        box-shadow: inset 3px 0 0 var(--oak-500);
+      }
+      @include hover {
+        color: var(--ink);
+      }
+    }
+  }
+  &__stage {
+    position: relative;
+    display: grid;
+    > * {
+      grid-area: 1 / 1;
+    }
+  }
+}
+.app {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease), visibility 0s 0.7s;
+  &.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.7s var(--ease), visibility 0s;
+  }
+  &__media {
+    position: relative;
+    aspect-ratio: 4 / 4.2;
+    overflow: hidden;
+    background: var(--oak-100);
+    clip-path: inset(0 0 0 0);
+    @include up($bp-md) {
+      aspect-ratio: 16 / 10;
+    }
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      transition: transform 1.6s var(--ease-out);
+    }
+  }
+  &.is-active &__media img {
+    transform: scale(1);
+  }
+  &__card {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 1.1rem;
+    align-items: center;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 0.85rem;
+    @include up($bp-md) {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      grid-template-columns: 104px minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      padding: 0.9rem 1.5rem 0.9rem 0.9rem;
+      min-width: min(34rem, 80%);
+    }
+  }
+  &__chip {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    @include up($bp-md) {
+      width: 104px;
+      height: 104px;
+    }
+  }
+  &__txt {
+    span {
+      display: block;
+      font-size: 0.6875rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--oak-700);
+    }
+    strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.375rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin: 0.2rem 0;
+    }
+    small {
+      font-size: 0.8125rem;
+      color: var(--ink-2);
+    }
+  }
+  &__go {
+    grid-column: 1 / -1;
+    @include up($bp-md) {
+      grid-column: auto;
+    }
+  }
+}
+// the applications stage needs room for the absolute card on desktop
+.apps__stage {
+  position: relative;
+}

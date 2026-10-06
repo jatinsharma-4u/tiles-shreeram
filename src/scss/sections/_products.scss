@@ -1,0 +1,106 @@
+// Featured products — editorial layout
+.featured {
+  background: var(--paper);
+}
+.feat {
+  display: grid;
+  gap: 3rem;
+  @include up($bp-lg) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: start;
+  }
+  &__side {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--line-strong);
+  }
+}
+.fcard {
+  display: block;
+  &__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--oak-100);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: scale 1.2s var(--ease-out);
+    }
+  }
+  &__eyebrow {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oak-700);
+    margin-bottom: 0.5rem;
+  }
+  &__meta {
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    margin-top: 0.4rem;
+  }
+  &__desc {
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+    margin-top: 0.75rem;
+    max-width: 32rem;
+  }
+  &__cta {
+    margin-top: 1.1rem;
+  }
+
+  &--lg {
+    .fcard__media {
+      aspect-ratio: 5 / 5.2;
+    }
+    .fcard__body {
+      padding-top: 1.5rem;
+    }
+    h3 {
+      font-size: clamp(2rem, 3.4vw, 3.25rem);
+    }
+  }
+  &--row {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: center;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--line-strong);
+    @include up($bp-md) {
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 2rem;
+    }
+    .fcard__media {
+      aspect-ratio: 1;
+    }
+    h3 {
+      font-size: clamp(1.4rem, 2vw, 1.875rem);
+    }
+    .fcard__desc {
+      display: none;
+      @include up($bp-md) {
+        display: block;
+      }
+    }
+    .fcard__cta {
+      margin-top: 0.9rem;
+    }
+  }
+  @include hover {
+    .fcard__media img {
+      scale: 1.06;
+    }
+    .link-arrow {
+      background-size: 0% 1px;
+      background-position: 100% 100%;
+      svg {
+        transform: translateX(6px);
+      }
+    }
+  }
+}

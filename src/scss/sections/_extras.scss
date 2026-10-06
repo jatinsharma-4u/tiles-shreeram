@@ -1,0 +1,353 @@
+// ---- Marquee
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  padding-block: clamp(1rem, 2vw, 1.75rem);
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    width: max-content;
+    animation: marquee 38s linear infinite;
+    span {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.6vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--ink-2);
+    }
+    i {
+      width: 10px;
+      height: 10px;
+      background: var(--oak-500);
+      transform: rotate(45deg);
+      flex: none;
+    }
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
+
+// ---- Spaces (horizontal gallery)
+.spaces {
+  background: var(--paper);
+  overflow: clip;
+  &__pin {
+    padding-block: clamp(70px, 9vw, 130px);
+    @include up($bp-lg) {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: 6rem 3rem;
+    }
+  }
+  &__head {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    .eyebrow {
+      margin-bottom: 1rem;
+    }
+  }
+  &__track {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    padding-inline: var(--gut);
+    scroll-padding-inline: var(--gut);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include up($bp-lg) {
+      overflow: visible;
+      scroll-snap-type: none;
+      width: max-content;
+    }
+  }
+}
+.space {
+  flex: none;
+  width: 78vw;
+  scroll-snap-align: start;
+  @include up($bp-md) {
+    width: 52vw;
+  }
+  @include up($bp-lg) {
+    width: min(40vw, 62vh * 1.3);
+  }
+  a {
+    display: block;
+  }
+  &__media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--oak-100);
+    @include up($bp-lg) {
+      aspect-ratio: 5 / 4;
+      height: min(56vh, 520px);
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: scale 1.4s var(--ease-out);
+    }
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding-top: 0.9rem;
+    span {
+      font-size: 0.6875rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--oak-700);
+    }
+    b {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+  }
+  @include hover {
+    .space__media img {
+      scale: 1.05;
+    }
+  }
+}
+
+.spaces__progress {
+  height: 2px;
+  background: var(--line);
+  margin-top: 1.5rem;
+  max-width: 14rem;
+  i {
+    display: block;
+    height: 100%;
+    background: var(--ink);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+}
+
+// ---- Catalogue CTA
+.cat__cta {
+  background: var(--oak-100);
+  padding-block: clamp(4rem, 9vw, 8rem);
+  &-in {
+    display: grid;
+    gap: 1.25rem;
+    justify-items: start;
+    h2 {
+      font-size: clamp(2rem, 4.6vw, 4rem);
+    }
+    p {
+      color: var(--ink-2);
+      max-width: 32rem;
+    }
+  }
+  &-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+}
+
+// ---- Product page: mobile sticky enquiry bar
+.pd__sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem var(--gut) calc(0.75rem + env(safe-area-inset-bottom));
+  background: rgba(247, 242, 233, 0.94);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  transform: translateY(110%);
+  transition: transform 0.5s var(--ease-out);
+  &.is-visible {
+    transform: none;
+  }
+  strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.0625rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  > div:first-child {
+    min-width: 0;
+  }
+  strong,
+  small {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  small {
+    display: block;
+    color: var(--ink-2);
+    font-size: 0.75rem;
+  }
+  @include up($bp-lg) {
+    display: none;
+  }
+}
+
+body.has-sticky .footer {
+  @include down($bp-lg) {
+    padding-bottom: 4.5rem;
+  }
+}
+.pd__sticky-btns {
+  display: flex;
+  gap: 0.5rem;
+  flex: none;
+}
+
+// ---- Page transition: a quiet ivory wipe (rises to cover on leave, lifts away on arrival). No loader, no colour.
+html.motion::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: var(--ivory);
+  pointer-events: none;
+  clip-path: inset(100% 0 0 0);
+}
+html.veil-in::after {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.34s cubic-bezier(0.65, 0, 0.35, 1);
+}
+html.veil-on::after {
+  clip-path: inset(0 0 0 0);
+  animation: veil-failsafe 0.01s 3s forwards; // never trap the page if scripts fail
+}
+html.veil-out::after {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+}
+@keyframes veil-failsafe {
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+// ---- Scroll progress hairline
+.scroll-progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  z-index: 140;
+  background: var(--oak-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+// tighter rhythm between the closing CTA and the contact form
+.cta + .contact {
+  padding-top: clamp(3rem, 6vw, 5.5rem);
+}
+
+// ===== Micro-interactions
+@keyframes pop {
+  0% { transform: scale(0.82); }
+  55% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+@keyframes chip-in {
+  from { opacity: 0; transform: translateY(4px) scale(0.92); }
+}
+@keyframes bump {
+  40% { transform: translateY(-3px); opacity: 0.5; }
+}
+.swatch input:checked + .swatch__dot {
+  animation: pop 0.45s var(--ease-out);
+}
+.chip {
+  animation: chip-in 0.35s var(--ease-out);
+}
+.toolbar__count b.bump {
+  display: inline-block;
+  animation: bump 0.4s var(--ease-out);
+}
+.pill input:checked + span,
+.opt input:checked + .opt__box {
+  animation: pop 0.35s var(--ease-out);
+}
+@media (hover: none) {
+  .pcard:active .pcard__media,
+  .coll:active .coll__media,
+  .space:active .space__media {
+    scale: 0.985;
+    transition: scale 0.2s var(--ease);
+  }
+}
+.chip:active,
+.pill:active,
+.opt:active,
+.swatch:active {
+  transform: scale(0.96);
+}
+
+// cursor-following label on image cards (pointer devices only)
+.cursor-label {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 160;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ivory);
+  color: var(--ink);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.3s var(--ease), scale 0.45s var(--ease-out);
+  scale: 0.6;
+  box-shadow: 0 10px 30px -12px rgba(42, 35, 27, 0.5);
+  &.is-on {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-label {
+    display: none;
+  }
+}

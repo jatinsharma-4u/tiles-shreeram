@@ -1,0 +1,37 @@
+.why {
+  background: var(--paper);
+  &__list li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.25rem 1rem;
+    padding-block: 1.6rem;
+    border-top: 1px solid var(--line-strong);
+    transition: padding 0.5s var(--ease-out);
+    @include up($bp-md) {
+      grid-template-columns: 3rem 15rem 1fr;
+      align-items: baseline;
+      gap: 1rem 1.5rem;
+    }
+    &:last-child {
+      border-bottom: 1px solid var(--line-strong);
+    }
+    span {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      color: var(--oak-700);
+    }
+    h3 {
+      font-size: clamp(1.4rem, 2vw, 1.875rem);
+    }
+    p {
+      color: var(--ink-2);
+      grid-column: 2;
+      @include up($bp-md) {
+        grid-column: auto;
+      }
+    }
+    @include hover {
+      padding-left: 1rem;
+    }
+  }
+}

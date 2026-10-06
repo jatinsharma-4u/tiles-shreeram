@@ -1,0 +1,196 @@
+.form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: clamp(1.1rem, 3.5vw, 3rem);
+
+  &__grid {
+    display: grid;
+    gap: 0.8rem 1.5rem;
+    margin-bottom: 1.25rem;
+    @include up($bp-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  &__status {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    min-height: 1.5em;
+    color: var(--oak-700);
+    &.is-error {
+      color: #9b2c1f;
+    }
+  }
+}
+.field {
+  position: relative;
+  &--full {
+    @include up($bp-md) {
+      grid-column: 1 / -1;
+    }
+  }
+  label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 0.15rem;
+    transition: color 0.3s;
+  }
+  &:focus-within label {
+    color: var(--ink);
+  }
+  input,
+  select,
+  textarea {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line-strong);
+    border-radius: 0;
+    padding: 0.45rem 0 0.4rem;
+    font-size: 1rem;
+    outline: 0;
+    // micro-interaction: the underline draws in from the left on focus
+    background: linear-gradient(var(--ink), var(--ink)) 0 100% / 0% 1.5px no-repeat;
+    transition: border-color 0.3s, background-size 0.5s var(--ease-out);
+    &:focus {
+      background-size: 100% 1.5px;
+    }
+    &[aria-invalid='true'] {
+      border-bottom-color: #9b2c1f;
+      box-shadow: 0 1px 0 #9b2c1f;
+    }
+    &[readonly] {
+      color: var(--ink-2);
+    }
+  }
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1.5 5 5 5-5' fill='none' stroke='%232a231b' stroke-width='1.5'/%3E%3C/svg%3E") right 0.1rem center no-repeat;
+    padding-right: 1.5rem;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 6rem;
+  }
+  &__err {
+    min-height: 0.9rem;
+    font-size: 0.75rem;
+    color: #9b2c1f;
+    margin-top: 0.2rem;
+  }
+}
+
+// ===== Custom dropdown (replaces the native select UI)
+.dd {
+  position: relative;
+  display: inline-block;
+  &__native {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.3rem 0;
+    font-size: 0.875rem;
+    color: var(--ink);
+    svg {
+      width: 14px;
+      height: 14px;
+      flex: none;
+      transition: transform 0.4s var(--ease-out);
+    }
+    &:focus-visible {
+      outline-offset: 5px;
+      outline-width: 1px;
+    }
+    &.is-placeholder .dd__label {
+      color: var(--ink-3);
+    }
+  }
+  &.is-open &__btn svg {
+    transform: rotate(180deg);
+  }
+  &__list {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.6rem);
+    z-index: 40;
+    min-width: 11.5rem;
+    max-height: 18rem;
+    overflow-y: auto;
+    padding: 0.35rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 0 22px 44px -22px rgba(42, 35, 27, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top right;
+    transition: opacity 0.25s var(--ease), transform 0.4s var(--ease-out), visibility 0s 0.3s;
+  }
+  &.is-open &__list {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.25s var(--ease), transform 0.4s var(--ease-out), visibility 0s;
+  }
+  &__opt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.2s, padding 0.3s var(--ease-out);
+    svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.25s, transform 0.35s var(--ease-out);
+    }
+    &.is-active {
+      background: var(--oak-100);
+      padding-left: 1rem;
+    }
+    &[aria-selected='true'] {
+      font-weight: 500;
+      svg {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+  // inside a form field: full width, underline style
+  .field & {
+    display: block;
+  }
+  .field & &__btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.6rem 0 0.55rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .field & &__list {
+    left: 0;
+    right: 0;
+    transform-origin: top center;
+  }
+}
+
+.field select[aria-invalid='true'] ~ .dd__btn {
+  border-bottom-color: #9b2c1f;
+}

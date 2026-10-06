@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en" data-page="{{page}}">
+<head>
+{{include:head}}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HomeGoodsStore","name":"Hari Traders","description":"Premium tiles and surfaces for residential and commercial interiors.","url":"https://www.haritraders.example/","image":"https://www.haritraders.example/images/scene-living-oak.webp","telephone":"+91 00000 00000","email":"hello@haritraders.example","address":{"@type":"PostalAddress","streetAddress":"Showroom address","addressLocality":"City","addressCountry":"IN"}}
+</script>
+</head>
+<body class="page-home">
+{{include:sprite}}
+{{include:nav}}
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero__visual">
+      <div class="hero__frame" data-hero-frame>
+        <figure class="hero__slide"><picture>
+          <source media="(max-width: 767.98px)" srcset="images/hero-mobile-sm.webp 800w, images/hero-mobile.webp 1200w, images/hero-mobile-lg.webp 1800w" sizes="100vw">
+          <img src="images/scene-exterior-night.webp" srcset="images/scene-exterior-night-sm.webp 900w, images/scene-exterior-night.webp 1920w, images/scene-exterior-night-lg.webp 2880w" sizes="100vw" width="2880" height="1920" alt="Contemporary timber-clad home at dusk with warm oak cladding and a glazed terrace" fetchpriority="high" decoding="async">
+        </picture></figure>
+      </div>
+      <aside class="hero__chip">
+        <img class="hero__chip-img" src="images/tile-s02-sm.webp" width="120" height="120" alt="">
+        <div class="hero__chip-txt">
+          <span>Featured surface</span>
+          <strong>Basalt Noir</strong>
+          <small>Terra · 600 × 600 mm</small>
+        </div>
+      </aside>
+    </div>
+    <a class="hero__scroll" href="#showcase" aria-label="Scroll to the tile showcase"><span>Scroll</span><i></i></a>
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow" data-hero="eyebrow">Premium surfaces</p>
+        <h1 class="hero__title" data-hero="title" aria-label="Designed for spaces that last.">
+          <span class="ln" aria-hidden="true"><span>Designed for<br class="m-br"> spaces</span></span>
+          <span class="ln" aria-hidden="true"><span>that last<em>.</em></span></span>
+        </h1>
+        <p class="hero__lead" data-hero="lead">Marble, stone, concrete, oak and terrazzo, surfaces made to last.</p>
+        <div class="hero__cta" data-hero="cta">
+          <a class="btn btn--primary" href="products.html"><span>Explore collection</span><svg class="btn__arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="contact.html"><span>Contact now</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Marble</span><i></i><span>Stone</span><i></i><span>Concrete</span><i></i><span>Oak</span><i></i><span>Terrazzo</span><i></i><span>Metal</span><i></i>
+      <span>Marble</span><i></i><span>Stone</span><i></i><span>Concrete</span><i></i><span>Oak</span><i></i><span>Terrazzo</span><i></i><span>Metal</span><i></i>
+    </div>
+  </div>
+
+  <!-- ============ SIGNATURE SHOWCASE (pinned) ============ -->
+  <section class="showcase" id="showcase" aria-label="Interactive tile showcase">
+    <div class="showcase__stage" data-showcase>
+      <div class="showcase__bg" aria-hidden="true"><span class="showcase__num" data-sc-num>01</span></div>
+
+      <div class="sc-item" data-sc-item>
+        <figure class="sc-scene"><img src="images/scene-bathroom-white.webp" srcset="images/scene-bathroom-white-sm.webp 900w, images/scene-bathroom-white.webp 1920w, images/scene-bathroom-white-lg.webp 2880w" sizes="100vw" width="1920" height="1282" alt="White marble-look tiles in a bright bathroom" loading="lazy" decoding="async"></figure>
+        <div class="sc-tile"><div class="sc-tile__frame"><img src="images/tile-m01.webp" width="2000" height="2000" alt="Calacatta Bianco marble-look tile surface" decoding="async"></div><span class="sc-tile__cap">Surface detail</span></div>
+        <article class="sc-info">
+          <p class="eyebrow">01 / 04 · Aurelia · Marble</p>
+          <h3>Calacatta Bianco</h3>
+          <p class="sc-info__meta">Polished · 600 × 1200 mm · 10 mm</p>
+          <p>Warm white ground with fine grey and gold veining, luminous on floors, calm on walls.</p>
+          <a class="link-arrow" href="product.html?id=TILE-001"><span>View product</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <div class="sc-item" data-sc-item>
+        <figure class="sc-scene"><img src="images/scene-living-oak.webp" srcset="images/scene-living-oak-sm.webp 900w, images/scene-living-oak.webp 1920w, images/scene-living-oak-lg.webp 2880w" sizes="100vw" width="1920" height="1013" alt="Oak-look porcelain flooring in a warm living room" loading="lazy" decoding="async"></figure>
+        <div class="sc-tile"><div class="sc-tile__frame"><img src="images/tile-w01.webp" width="2000" height="2000" alt="Oak Natural wood-look tile surface" loading="lazy" decoding="async"></div><span class="sc-tile__cap">Surface detail</span></div>
+        <article class="sc-info">
+          <p class="eyebrow">02 / 04 · Quercus · Wood</p>
+          <h3>Oak Natural</h3>
+          <p class="sc-info__meta">Matt · 200 × 1200 mm · 10 mm</p>
+          <p>Light natural oak with a gentle, open grain, the warmth of timber without the upkeep.</p>
+          <a class="link-arrow" href="product.html?id=TILE-015"><span>View product</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <div class="sc-item" data-sc-item>
+        <figure class="sc-scene"><img src="images/scene-commercial.webp" srcset="images/scene-commercial-sm.webp 900w, images/scene-commercial.webp 1920w, images/scene-commercial-lg.webp 2880w" sizes="100vw" width="1920" height="1282" alt="Large-format concrete-look floor in a commercial interior" loading="lazy" decoding="async"></figure>
+        <div class="sc-tile"><div class="sc-tile__frame"><img src="images/tile-c01.webp" width="2000" height="2000" alt="Atelier Grey concrete-look tile surface" loading="lazy" decoding="async"></div><span class="sc-tile__cap">Surface detail</span></div>
+        <article class="sc-info">
+          <p class="eyebrow">03 / 04 · Atelier · Concrete</p>
+          <h3>Atelier Grey</h3>
+          <p class="sc-info__meta">Matt · 1200 × 2400 mm · 6 mm</p>
+          <p>Mid-grey concrete in a statement slab, fewer joints, a quieter floor, a more architectural room.</p>
+          <a class="link-arrow" href="product.html?id=TILE-011"><span>View product</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <div class="sc-item" data-sc-item>
+        <figure class="sc-scene"><img src="images/scene-living-cream.webp" srcset="images/scene-living-cream-sm.webp 900w, images/scene-living-cream.webp 1920w, images/scene-living-cream-lg.webp 2880w" sizes="100vw" width="1920" height="1406" alt="Sandy travertine-look tiles in a soft cream living room" loading="lazy" decoding="async"></figure>
+        <div class="sc-tile"><div class="sc-tile__frame"><img src="images/tile-s01.webp" width="2000" height="2000" alt="Travertino Sand stone-look tile surface" loading="lazy" decoding="async"></div><span class="sc-tile__cap">Surface detail</span></div>
+        <article class="sc-info">
+          <p class="eyebrow">04 / 04 · Terra · Stone</p>
+          <h3>Travertino Sand</h3>
+          <p class="sc-info__meta">Matt · 600 × 1200 mm · 10 mm</p>
+          <p>Sun-washed travertine with natural pitting, soft underfoot visually, grounded in every light.</p>
+          <a class="link-arrow" href="product.html?id=TILE-007"><span>View product</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <div class="showcase__progress" aria-hidden="true"><i data-sc-bar></i></div>
+      <p class="showcase__hint" aria-hidden="true">Keep scrolling</p>
+    </div>
+  </section>
+
+  <!-- ============ BRAND INTRO ============ -->
+  <section class="intro section" id="about">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--num"><span>01</span> The brand</p>
+      <h2 class="intro__statement" data-scrub-words>A surface is more than what you see. It defines how a space feels.</h2>
+      <div class="row gy-5 intro__body">
+        <div class="col-lg-5">
+          <p class="lead" data-fade>Hari Traders brings together tiles that are designed to be lived on. We select every surface for its material honesty, the depth of its veining, the grain of its oak, the quiet of its concrete, and for how it performs after years of everyday use.</p>
+          <a class="link-arrow" href="products.html" data-fade><span>Explore the collection</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="col-lg-6 offset-lg-1">
+          <ul class="pillars">
+            <li data-fade><span class="pillars__n">i.</span><h3>Philosophy</h3><p>Materials first. A good surface should disappear into a space and make everything around it feel better.</p></li>
+            <li data-fade><span class="pillars__n">ii.</span><h3>Design</h3><p>Contemporary collections shaped by architecture, calm palettes, honest textures, considered formats.</p></li>
+            <li data-fade><span class="pillars__n">iii.</span><h3>Quality</h3><p>Rectified edges, consistent shading and dependable strength, checked before anything leaves the warehouse.</p></li>
+            <li data-fade><span class="pillars__n">iv.</span><h3>Innovation</h3><p>Large slabs, convincing natural looks and finishes engineered for floors, walls and the outdoors.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLLECTIONS ============ -->
+  <section class="collections section" id="collections">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow eyebrow--num"><span>02</span> Collections</p>
+        <h2 class="h2" data-reveal="words">Six materials.<br>One considered palette.</h2>
+        <p class="section-head__aside" data-fade>Each collection is built around a single material idea, then expanded across colours, finishes and formats.</p>
+      </header>
+      <div class="coll-grid">
+        <a class="coll" href="products.html?look=Marble">
+          <div class="coll__media"><img src="images/tile-m01.webp" alt="" width="2000" height="2000" loading="lazy" decoding="async"></div>
+          <div class="coll__row"><div><span class="coll__n">01</span><h3>Aurelia</h3><p>Marble · <span data-count-look="Marble">7</span> designs</p></div><span class="coll__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="coll" href="products.html?look=Stone">
+          <div class="coll__media"><img src="images/tile-s01.webp" alt="" width="2000" height="2000" loading="lazy" decoding="async"></div>
+          <div class="coll__row"><div><span class="coll__n">02</span><h3>Terra</h3><p>Stone · <span data-count-look="Stone">4</span> designs</p></div><span class="coll__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="coll" href="products.html?look=Concrete">
+          <div class="coll__media"><img src="images/tile-c01.webp" alt="" width="2000" height="2000" loading="lazy" decoding="async"></div>
+          <div class="coll__row"><div><span class="coll__n">03</span><h3>Atelier</h3><p>Concrete · <span data-count-look="Concrete">4</span> designs</p></div><span class="coll__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="coll" href="products.html?look=Wood">
+          <div class="coll__media"><img src="images/tile-w01.webp" alt="" width="2000" height="2000" loading="lazy" decoding="async"></div>
+          <div class="coll__row"><div><span class="coll__n">04</span><h3>Quercus</h3><p>Wood · <span data-count-look="Wood">4</span> designs</p></div><span class="coll__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="coll" href="products.html?look=Terrazzo">
+          <div class="coll__media"><img src="images/tile-t01.webp" alt="" width="2000" height="2000" loading="lazy" decoding="async"></div>
+          <div class="coll__row"><div><span class="coll__n">05</span><h3>Venezia</h3><p>Terrazzo · <span data-count-look="Terrazzo">4</span> designs</p></div><span class="coll__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+        <a class="coll" href="products.html?look=Metal">
+          <div class="coll__media"><img src="images/tile-x01.webp" alt="" width="2000" height="2000" loading="lazy" decoding="async"></div>
+          <div class="coll__row"><div><span class="coll__n">06</span><h3>Metallo</h3><p>Metal · <span data-count-look="Metal">2</span> designs</p></div><span class="coll__go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PRODUCTS ============ -->
+  <section class="featured section" id="featured">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow eyebrow--num"><span>03</span> Featured</p>
+        <h2 class="h2" data-reveal="words">Surfaces we<br>keep coming back to.</h2>
+        <a class="btn btn--ghost btn--sm section-head__cta" href="products.html" data-fade><span>View all products</span><svg class="btn__arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </header>
+      <div class="feat" data-featured></div>
+    </div>
+  </section>
+
+  <!-- ============ SPACES (horizontal) ============ -->
+  <section class="spaces" id="spaces" data-spaces aria-label="Spaces">
+    <div class="spaces__pin" data-spaces-pin>
+      <header class="wrap spaces__head">
+        <p class="eyebrow">Spaces</p>
+        <h2 class="h2" data-reveal="words">Surfaces, lived in.</h2>
+        <div class="spaces__progress" aria-hidden="true"><i data-spaces-bar></i></div>
+      </header>
+      <div class="spaces__track" data-spaces-track>
+        <figure class="space"><a href="product.html?id=TILE-015"><div class="space__media"><img src="images/scene-living-modern-sm.webp" srcset="images/scene-living-modern-sm.webp 900w, images/scene-living-modern.webp 1920w, images/scene-living-modern-lg.webp 2880w" sizes="(min-width: 992px) 40vw, 80vw" width="1920" height="1306" alt="Open-plan living room with a timber feature wall" loading="lazy" decoding="async"></div><figcaption><span>Living room</span><b>Oak Natural</b></figcaption></a></figure>
+        <figure class="space"><a href="product.html?id=TILE-003"><div class="space__media"><img src="images/scene-bathroom-dark-sm.webp" srcset="images/scene-bathroom-dark-sm.webp 900w, images/scene-bathroom-dark.webp 1920w, images/scene-bathroom-dark-lg.webp 2880w" sizes="(min-width: 992px) 40vw, 80vw" width="1920" height="2880" alt="Dark, moody bathroom with a freestanding bath" loading="lazy" decoding="async"></div><figcaption><span>Bathroom</span><b>Nero Marquina</b></figcaption></a></figure>
+        <figure class="space"><a href="product.html?id=TILE-006"><div class="space__media"><img src="images/scene-bedroom-sm.webp" srcset="images/scene-bedroom-sm.webp 900w, images/scene-bedroom.webp 1920w, images/scene-bedroom-lg.webp 2880w" sizes="(min-width: 992px) 40vw, 80vw" width="1920" height="1280" alt="Bright bedroom with polished floor tiles" loading="lazy" decoding="async"></div><figcaption><span>Bedroom</span><b>Crema Aurelia</b></figcaption></a></figure>
+        <figure class="space"><a href="product.html?id=TILE-002"><div class="space__media"><img src="images/scene-kitchen-sm.webp" srcset="images/scene-kitchen-sm.webp 900w, images/scene-kitchen.webp 1920w, images/scene-kitchen-lg.webp 2880w" sizes="(min-width: 992px) 40vw, 80vw" width="1920" height="1151" alt="White kitchen with a marble-look worktop" loading="lazy" decoding="async"></div><figcaption><span>Kitchen</span><b>Statuario Veil</b></figcaption></a></figure>
+        <figure class="space"><a href="product.html?id=TILE-012"><div class="space__media"><img src="images/scene-office-sm.webp" srcset="images/scene-office-sm.webp 900w, images/scene-office.webp 1920w, images/scene-office-lg.webp 2880w" sizes="(min-width: 992px) 40vw, 80vw" width="1920" height="1280" alt="Glass-walled workspace with a light concrete floor" loading="lazy" decoding="async"></div><figcaption><span>Commercial</span><b>Atelier Cloud</b></figcaption></a></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MATERIAL / CRAFT ============ -->
+  <section class="craft section" id="craft">
+    <div class="wrap">
+      <div class="row gy-5 align-items-center">
+        <div class="col-lg-5 order-2 order-lg-1">
+          <p class="eyebrow eyebrow--num"><span>04</span> Material &amp; craft</p>
+          <h2 class="h2" data-reveal="words">Made with precision.<br>Designed with purpose.</h2>
+          <ol class="craft__list">
+            <li data-fade><span>01</span><div><h3>Material quality</h3><p>Dense, glazed porcelain with consistent shading from the first box to the last.</p></div></li>
+            <li data-fade><span>02</span><div><h3>Manufacturing</h3><p>Rectified edges and tight calibre allow slim grout lines and clean, continuous surfaces.</p></div></li>
+            <li data-fade><span>03</span><div><h3>Surface finishing</h3><p>Polished, satin, matt or textured, each finish tuned to how the room is actually used.</p></div></li>
+            <li data-fade><span>04</span><div><h3>Durability</h3><p>Low water absorption, strong underfoot and resistant to stains, scratches and daily wear.</p></div></li>
+            <li data-fade><span>05</span><div><h3>Quality control</h3><p>Every batch is checked for size, shade and flatness before it is dispatched.</p></div></li>
+          </ol>
+        </div>
+        <div class="col-lg-7 order-1 order-lg-2">
+          <div class="craft__media" data-craft>
+            <img src="images/macro-marble.webp" width="2000" height="1200" alt="Close-up macro of polished marble-look porcelain showing veining and glaze depth" loading="lazy" decoding="async">
+            <span class="craft__tag">Macro · surface detail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLICATIONS ============ -->
+  <section class="apps section" id="applications">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow eyebrow--num"><span>05</span> Applications</p>
+        <h2 class="h2" data-reveal="words">See it in the room<br>before you choose.</h2>
+        <p class="section-head__aside" data-fade>Tile → texture → room → complete interior. Pick a space to see which surface suits it best.</p>
+      </header>
+      <div class="apps__grid" data-apps>
+        <div class="apps__tabs" role="tablist" aria-label="Applications" data-apps-tabs></div>
+        <div class="apps__stage" data-apps-stage></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY CHOOSE US ============ -->
+  <section class="why section" id="why">
+    <div class="wrap">
+      <div class="row gy-5">
+        <div class="col-lg-4">
+          <p class="eyebrow eyebrow--num"><span>06</span> Why Hari Traders</p>
+          <h2 class="h2" data-reveal="words">Quietly better,<br>in every detail.</h2>
+        </div>
+        <div class="col-lg-7 offset-lg-1">
+          <ul class="why__list">
+            <li data-fade><span>01</span><h3>Premium quality</h3><p>Consistent finish and manufacturing standards across every batch.</p></li>
+            <li data-fade><span>02</span><h3>Contemporary design</h3><p>Collections drawn from modern architecture and interior design.</p></li>
+            <li data-fade><span>03</span><h3>Durability</h3><p>Surfaces built for long-term, everyday use, indoors and out.</p></li>
+            <li data-fade><span>04</span><h3>Variety</h3><p>Multiple colours, sizes and finishes within each material family.</p></li>
+            <li data-fade><span>05</span><h3>Support</h3><p>Professional guidance on selection, quantity and project planning.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARCHITECTURAL PARALLAX ============ -->
+  <section class="arch" aria-label="Architecture" data-arch>
+    <div class="arch__bg" data-arch-bg><img src="images/scene-outdoor.webp" srcset="images/scene-outdoor-sm.webp 900w, images/scene-outdoor.webp 1920w, images/scene-outdoor-lg.webp 2880w" sizes="100vw" width="1920" height="1280" alt="Contemporary timber-clad house with outdoor tiled terrace" loading="lazy" decoding="async"></div>
+    <div class="arch__veil"></div>
+    <div class="arch__swatch" data-arch-swatch aria-hidden="true"><img src="images/tile-s02-sm.webp" alt="" width="640" height="640" loading="lazy"></div>
+    <div class="wrap arch__copy">
+      <p class="eyebrow eyebrow--light">Architecture × Material</p>
+      <h2 class="arch__title" data-reveal="words">Surfaces that define architecture.</h2>
+      <a class="btn btn--light" href="products.html?application=Outdoor"><span>Explore outdoor tiles</span><svg class="btn__arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta section">
+    <div class="wrap cta__inner">
+      <h2 class="cta__title" data-reveal="words">Let's create spaces<br>worth remembering.</h2>
+      <div class="cta__btns" data-fade>
+        <a class="btn btn--primary" href="#contact"><span>Contact now</span></a>
+        <a class="btn btn--ghost" href="products.html"><span>Explore products</span><svg class="btn__arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact section" id="contact">
+    <div class="wrap">
+      <div class="row gy-5">
+        <div class="col-lg-5">
+          <p class="eyebrow eyebrow--num"><span>07</span> Contact</p>
+          <h2 class="h2" data-reveal="words">Tell us about<br>your space.</h2>
+          <p class="lead" data-fade>Share what you're planning, a single room or a full project, and we'll come back with recommendations and a quote.</p>
+          <ul class="contact__details" data-fade>
+            <li><span>Phone</span><a href="tel:+910000000000">+91 00000 00000</a></li>
+            <li><span>Email</span><a href="mailto:hello@haritraders.example">hello@haritraders.example</a></li>
+            <li><span>WhatsApp</span><a href="https://wa.me/910000000000" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+            <li><span>Showroom</span><address>Showroom address line,<br>City, State, PIN</address></li>
+            <li><span>Follow</span><span><a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">Pinterest</a> · <a href="#" rel="noopener">Facebook</a></span></li>
+          </ul>
+        </div>
+        <div class="col-lg-6 offset-lg-1">
+          <form class="form" data-form="contact" novalidate>
+            <div class="form__grid">
+              <div class="field"><label for="c-name">Full name</label><input id="c-name" name="name" type="text" autocomplete="name" required><p class="field__err" aria-live="polite"></p></div>
+              <div class="field"><label for="c-phone">Phone number</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><p class="field__err" aria-live="polite"></p></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required><p class="field__err" aria-live="polite"></p></div>
+              <div class="field"><label for="c-city">City</label><input id="c-city" name="city" type="text" autocomplete="address-level2" required><p class="field__err" aria-live="polite"></p></div>
+              <div class="field field--full"><label for="c-req">Requirement</label>
+                <select id="c-req" name="requirement" required>
+                  <option value="">Select a requirement</option>
+                  <option>Floor tiles</option><option>Wall tiles</option><option>Bathroom</option><option>Kitchen</option><option>Outdoor / terrace</option><option>Commercial project</option><option>Other</option>
+                </select><p class="field__err" aria-live="polite"></p></div>
+              <div class="field field--full"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="4"></textarea></div>
+            </div>
+            <button class="btn btn--primary btn--block" type="submit"><span>Send enquiry</span><svg class="btn__arr" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{include:footer}}
+</body>
+</html>

@@ -1,0 +1,42 @@
+// Bootstrap — grid system only (layout primitives); everything else is bespoke.
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/utilities';
+$utilities: map-get-multiple($utilities, ('align-items', 'order'));
+@import 'bootstrap/scss/utilities/api';
+
+@import '@fontsource-variable/dm-sans/wght.css';
+@import '@fontsource-variable/inter/wght.css';
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'components/buttons';
+@import 'components/navbar';
+@import 'components/forms';
+@import 'components/product-card';
+@import 'components/filters';
+@import 'components/footer';
+
+@import 'sections/hero';
+@import 'sections/intro';
+@import 'sections/showcase';
+@import 'sections/collections';
+@import 'sections/products';
+@import 'sections/craft';
+@import 'sections/applications';
+@import 'sections/why';
+@import 'sections/parallax';
+@import 'sections/contact';
+@import 'sections/catalogue';
+@import 'sections/product-detail';
+@import 'sections/extras';
+@import 'sections/pages';

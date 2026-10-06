@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-page="{{page}}">
+<head>
+{{include:head}}
+</head>
+<body class="page-catalogue">
+{{include:sprite}}
+{{include:nav}}
+
+<main id="main" class="cat">
+  <h1 class="sr-only">Tile catalogue</h1>
+
+  <section class="wrap cat__layout">
+    <aside class="filters" id="filters" aria-label="Filters" data-filters>
+      <div class="filters__head">
+        <h2>Filters</h2>
+        <button type="button" class="filters__clear" data-clear-all hidden>Clear all</button>
+        <button type="button" class="icon-btn filters__close" aria-label="Close filters" data-close-filters><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="filters__body" data-filter-groups data-lenis-prevent></div>
+      <div class="filters__foot">
+        <button type="button" class="btn btn--ghost" data-clear-all><span>Clear all</span></button>
+        <button type="button" class="btn btn--primary" data-apply><span>Show <b data-apply-count>24</b> results</span></button>
+      </div>
+    </aside>
+
+    <div class="cat__main">
+      <div class="toolbar">
+        <form class="search" role="search" data-search-form>
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="sr-only" for="q">Search tiles</label>
+          <input id="q" type="search" placeholder="Search tiles, collections, codes" autocomplete="off" data-search>
+          <button type="button" class="search__clear" aria-label="Clear search" data-search-clear hidden><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        </form>
+        <button type="button" class="toolbar__filter" data-open-filters aria-controls="filters" aria-expanded="false"><svg aria-hidden="true"><use href="#i-filter"/></svg><span>Filters</span><b class="toolbar__badge" data-badge hidden>0</b></button>
+        <div class="toolbar__sort">
+          <label for="sort">Sort</label>
+          <select id="sort" data-sort>
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="az">A to Z</option>
+            <option value="za">Z to A</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cat__meta">
+        <p class="toolbar__count" aria-live="polite"><b data-count>24</b> surfaces</p>
+        <div class="chips" data-chips aria-label="Active filters"></div>
+      </div>
+
+      <div class="pgrid" data-grid></div>
+      <div class="empty" data-empty hidden>
+        <h2>No surfaces match.</h2>
+        <p>Try removing a filter or searching for something broader.</p>
+        <button type="button" class="btn btn--primary" data-clear-all><span>Clear all filters</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat__cta">
+    <div class="wrap cat__cta-in">
+      <h2>Not sure which surface<br>is right for your space?</h2>
+      <p>Send us your room, a few photos or a plan, we'll shortlist tiles and share a quote.</p>
+      <div class="cat__cta-btns">
+        <a class="btn btn--primary" href="contact.html"><span>Get a quote</span></a>
+        <a class="btn btn--ghost" href="https://wa.me/910000000000" target="_blank" rel="noopener"><span>Chat on WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+  <div class="backdrop" data-backdrop></div>
+</main>
+
+{{include:footer}}
+</body>
+</html>

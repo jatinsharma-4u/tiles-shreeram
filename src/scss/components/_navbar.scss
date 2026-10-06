@@ -1,0 +1,237 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink);
+  &__mark {
+    width: 26px;
+    height: 26px;
+    flex: none;
+    transition: transform 0.7s var(--ease-out);
+  }
+  &__word {
+    display: grid;
+    line-height: 1;
+    b {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.375rem;
+      letter-spacing: 0.12em;
+    }
+    i {
+      font-style: normal;
+      font-size: 0.5625rem;
+      letter-spacing: 0.42em;
+      margin-top: 0.3rem;
+      color: var(--oak-700);
+    }
+  }
+  @include hover {
+    .logo__mark {
+      transform: rotate(90deg);
+    }
+  }
+  &--light {
+    color: var(--ivory);
+    .logo__word i {
+      color: var(--oak-300);
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  transition: background-color 0.5s var(--ease), border-color 0.5s var(--ease);
+  border-bottom: 1px solid transparent;
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: var(--nav-h);
+    transition: height 0.5s var(--ease-out);
+    @include up($bp-lg) {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+  // centred link group with a sliding oak dot for the current page
+  &__links {
+    display: none;
+    justify-self: center;
+    gap: clamp(1.25rem, 2.6vw, 2.75rem);
+    a {
+      position: relative;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      padding: 0.6rem 0;
+      transition: color 0.3s;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 4px;
+        height: 4px;
+        margin-left: -2px;
+        border-radius: 50%;
+        background: var(--oak-500);
+        transform: scale(0);
+        transition: transform 0.45s var(--ease-out);
+      }
+      @include hover {
+        color: var(--oak-700);
+        &::after {
+          transform: scale(1);
+        }
+      }
+      &[aria-current='page']::after {
+        transform: scale(1);
+      }
+    }
+  }
+  &__cta {
+    display: none;
+    justify-self: end;
+  }
+  &__toggle {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    margin-right: -6px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    transition: border-color 0.3s, background 0.3s;
+    span {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.55s var(--ease-out), top 0.55s var(--ease-out);
+      &:first-child {
+        top: 17px;
+      }
+      &:last-child {
+        top: 23px;
+      }
+    }
+    &[aria-expanded='true'] span {
+      &:first-child {
+        top: 20px;
+        transform: rotate(45deg);
+      }
+      &:last-child {
+        top: 20px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &.is-scrolled,
+  &.is-solid {
+    background: var(--ivory);
+    border-bottom-color: var(--line);
+  }
+  &.is-scrolled .nav__bar {
+    height: 60px;
+  }
+
+  @include up($bp-lg) {
+    &__links {
+      display: flex;
+    }
+    &__cta {
+      display: inline-flex;
+    }
+    &__toggle {
+      display: none;
+    }
+  }
+}
+
+// Full-screen mobile menu — large quiet type, generous spacing, one clear action
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--ivory);
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path 0.7s var(--ease-out), visibility 0s 0.7s;
+  overflow-y: auto;
+
+  &__inner {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: calc(var(--nav-h) + 1.5rem);
+    padding-bottom: calc(1.75rem + env(safe-area-inset-bottom));
+  }
+  &__links {
+    display: grid;
+    gap: 0.15rem;
+    a {
+      display: block;
+      padding-block: 0.55rem;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.45s var(--ease), transform 0.65s var(--ease-out), color 0.3s;
+      &[aria-current='page'] .menu__t {
+        color: var(--oak-600);
+      }
+    }
+  }
+  &__n {
+    display: none;
+  }
+  &__t {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+  &__foot {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    opacity: 0;
+    transition: opacity 0.6s 0.4s;
+    p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--ink-2);
+    }
+  }
+  &.is-open {
+    clip-path: inset(0 0 0 0);
+    visibility: visible;
+    transition: clip-path 0.7s var(--ease-out), visibility 0s;
+    .menu__links a {
+      opacity: 1;
+      transform: none;
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{0.12 + $i * 0.06}s;
+        }
+      }
+    }
+    .menu__foot {
+      opacity: 1;
+    }
+  }
+}
+body.menu-open .nav {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+}

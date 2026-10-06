@@ -1,0 +1,34 @@
+.contact {
+  .lead {
+    margin-top: 2rem;
+  }
+  &__details {
+    margin-top: 2.5rem;
+    max-width: 28rem;
+    li {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1rem;
+      padding-block: 0.95rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.9375rem;
+      > span:first-child {
+        font-size: 0.6875rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--oak-700);
+        padding-top: 0.2rem;
+      }
+      &:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      a {
+        background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1px no-repeat;
+        transition: background-size 0.5s var(--ease-out);
+        @include hover {
+          background-size: 100% 1px;
+        }
+      }
+    }
+  }
+}

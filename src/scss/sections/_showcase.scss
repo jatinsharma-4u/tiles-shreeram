@@ -1,0 +1,190 @@
+// Signature pinned tile showcase. Stage is pinned by GSAP; items are stacked and driven by one scrubbed timeline.
+.showcase {
+  position: relative;
+  background: var(--oak-100);
+
+  &__stage {
+    --tile-w: min(74vw, 46svh);
+    position: relative;
+    height: 100svh;
+    overflow: hidden;
+    --tile-ratio: 4 / 5;
+    @include up($bp-lg) {
+      // landscape tile on desktop: wider, shorter, so the zoom and swatch move smoothly inside the frame
+      --tile-ratio: 16 / 10;
+      --tile-w: min(46vw, 78svh);
+    }
+  }
+  &__bg {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(120% 90% at 50% 40%, var(--oak-50), var(--oak-100) 60%, var(--oak-200));
+  }
+  &__num {
+    font-family: var(--font-display);
+    font-size: clamp(14rem, 46vw, 40rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    color: rgba(42, 35, 27, 0.05);
+    user-select: none;
+  }
+  &__progress {
+    position: absolute;
+    left: var(--gut);
+    right: var(--gut);
+    top: calc(var(--nav-h) + 6px);
+    height: 2px;
+    background: rgba(42, 35, 27, 0.12);
+    z-index: 5;
+    i {
+      display: block;
+      height: 100%;
+      background: var(--ink);
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+  }
+  &__hint {
+    position: absolute;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    z-index: 5;
+  }
+}
+
+.sc-item {
+  position: absolute;
+  inset: 0;
+}
+.sc-scene {
+  position: absolute;
+  inset: 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.sc-tile {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: var(--tile-w);
+  &__frame {
+    aspect-ratio: var(--tile-ratio, 4 / 5);
+    overflow: hidden;
+    background: var(--oak-200);
+    box-shadow: 0 40px 80px -40px rgba(42, 35, 27, 0.55);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: 50% 50%;
+    }
+  }
+  &__cap {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 0.9rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+}
+.sc-info {
+  position: absolute;
+  z-index: 3;
+  left: var(--gut);
+  right: var(--gut);
+  bottom: 1.25rem;
+  padding: 1.25rem 1.25rem 1.4rem;
+  background: var(--ivory);
+  h3 {
+    font-size: clamp(1.875rem, 3vw, 3rem);
+    margin-bottom: 0.4rem;
+  }
+  .eyebrow {
+    margin-bottom: 0.9rem;
+    font-size: 0.6875rem;
+  }
+  &__meta {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin-bottom: 0.75rem;
+    color: var(--ink-2);
+  }
+  p:not(.eyebrow):not(.sc-info__meta) {
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+    margin-bottom: 1.1rem;
+  }
+  @include up($bp-lg) {
+    right: auto;
+    width: min(31rem, 36vw);
+    bottom: clamp(2rem, 9vh, 5rem);
+    padding: 2.25rem 2.25rem 2.5rem;
+  }
+}
+
+// Static (reduced-motion / no-JS) presentation: simple stacked editorial rows.
+html:not(.motion) .showcase__stage {
+  height: auto;
+  overflow: visible;
+  .showcase__bg,
+  .showcase__progress,
+  .showcase__hint {
+    display: none;
+  }
+  .sc-item {
+    position: relative;
+    display: grid;
+    gap: 0;
+    @include up($bp-lg) {
+      grid-template-columns: 1.4fr 1fr;
+      min-height: 80vh;
+    }
+  }
+  .sc-scene {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    @include up($bp-lg) {
+      aspect-ratio: auto;
+    }
+  }
+  .sc-tile {
+    left: auto;
+    right: 1rem;
+    top: auto;
+    bottom: 1rem;
+    width: 90px;
+    @include up($bp-lg) {
+      right: auto;
+      left: calc(58% - 3rem);
+      bottom: 3rem;
+      width: 120px;
+    }
+    &__cap {
+      display: none;
+    }
+  }
+  .sc-info {
+    position: relative;
+    inset: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem var(--gut);
+    background: var(--ivory);
+  }
+}

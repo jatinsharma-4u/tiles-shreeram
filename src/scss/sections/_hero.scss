@@ -1,0 +1,324 @@
+// Full-bleed photographic hero (dark, warm oak tones). The photograph is the background; type is quiet and light.
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--ivory);
+  background: #1d1812;
+
+  &__grid {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    align-items: end;
+    min-height: 100svh;
+    padding-top: calc(var(--nav-h) + 3rem);
+    padding-bottom: calc(clamp(2.5rem, 6vw, 5rem) + env(safe-area-inset-bottom));
+  }
+  &__copy {
+    max-width: 52rem;
+  }
+  &__title {
+    font-size: clamp(2.2rem, 4.5vw, 4.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    margin-bottom: clamp(0.9rem, 1.6vw, 1.25rem);
+    em {
+      font-style: normal;
+      color: var(--oak-300);
+    }
+    .ln {
+      display: block;
+      overflow: hidden;
+      padding-bottom: 0.14em;
+      margin-bottom: -0.14em;
+      > span {
+        display: inline-block;
+      }
+    }
+  }
+  .eyebrow {
+    color: var(--oak-200);
+    margin-bottom: 1.1rem;
+  }
+  &__lead {
+    color: rgba(247, 242, 233, 0.86);
+    font-size: clamp(0.875rem, 0.25vw + 0.82rem, 1rem);
+    margin-bottom: 1.6rem;
+    @include up($bp-md) {
+      white-space: nowrap;
+    }
+  }
+  &__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    .btn {
+      --h: 42px;
+      padding: 0 1.2rem;
+    }
+    .btn--primary {
+      background: var(--ivory);
+      border-color: var(--ivory);
+      color: var(--ink);
+    }
+    .btn--ghost {
+      border-color: rgba(247, 242, 233, 0.6);
+      color: var(--ivory);
+      background: rgba(30, 24, 18, 0.25);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      &::before {
+        background: var(--ivory);
+      }
+      @include hover {
+        color: var(--ink);
+      }
+    }
+  }
+
+  // background photograph
+  &__visual {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  &__frame {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    // warm dark veil on the text side + base; the architecture stays rich and sharp
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(24, 19, 14, 0.8) 0%, rgba(24, 19, 14, 0.42) 46%, rgba(24, 19, 14, 0.06) 100%),
+        linear-gradient(180deg, rgba(24, 19, 14, 0.5) 0%, rgba(24, 19, 14, 0) 24%, rgba(24, 19, 14, 0) 58%, rgba(24, 19, 14, 0.72) 100%);
+      @include down($bp-lg) {
+        background: linear-gradient(180deg, rgba(24, 19, 14, 0.58) 0%, rgba(24, 19, 14, 0.08) 28%, rgba(24, 19, 14, 0.45) 58%, rgba(24, 19, 14, 0.94) 100%);
+      }
+    }
+  }
+  &__slide {
+    position: absolute;
+    inset: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 60% 50%;
+      scale: 1.06; // headroom for the scroll parallax
+      @include down($bp-md) {
+        object-position: 50% 38%;
+      }
+      @include down($bp-lg) {
+        object-position: 40% 50%;
+      }
+    }
+  }
+  &__chip {
+    position: absolute;
+    right: var(--gut);
+    bottom: clamp(2.5rem, 6vw, 5rem);
+    display: none;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.5rem 1.1rem 0.5rem 0.5rem;
+    background: rgba(251, 248, 242, 0.94);
+    color: var(--ink);
+    z-index: 3;
+    @include up($bp-lg) {
+      display: flex;
+    }
+  }
+  &__chip-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+  }
+  &__chip-txt {
+    display: grid;
+    gap: 0.1rem;
+    min-width: 8rem;
+    span {
+      font-size: 0.5625rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--oak-700);
+    }
+    strong {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.0625rem;
+      letter-spacing: -0.025em;
+    }
+    small {
+      font-size: 0.75rem;
+      color: var(--ink-2);
+    }
+  }
+}
+
+// scroll cue (desktop only): a hairline that draws downward on loop
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 3;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  transform: translateX(-50%);
+  color: rgba(247, 242, 233, 0.8);
+  font-size: 0.5625rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  i {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 44px;
+    background: rgba(247, 242, 233, 0.25);
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--ivory);
+      transform: translateY(-100%);
+      animation: scroll-cue 2.4s var(--ease) infinite;
+    }
+  }
+  @include up($bp-lg) {
+    display: flex;
+  }
+}
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll i::after {
+    animation: none;
+    transform: none;
+  }
+}
+
+.m-br {
+  display: none;
+  @include down($bp-md) {
+    display: inline;
+  }
+}
+.hero__slide picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+// Phones: bottom-anchored composition — small single-line eyebrow, strong headline, quiet copy, compact buttons
+@include down($bp-md) {
+  .hero {
+    &__grid {
+      padding-top: calc(var(--nav-h) + 2rem);
+      padding-bottom: calc(3.25rem + env(safe-area-inset-bottom));
+    }
+    .eyebrow {
+      font-size: 0.5625rem;
+      letter-spacing: 0.22em;
+      margin-bottom: 0.9rem;
+      white-space: nowrap;
+    }
+    &__title {
+      font-size: clamp(2.05rem, 9.6vw, 2.6rem);
+      margin-bottom: 0.85rem;
+    }
+    &__lead {
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      max-width: 19rem;
+      margin-bottom: 1.35rem;
+    }
+    &__cta {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 0.5rem;
+      .btn {
+        --h: 40px;
+        padding: 0 0.7rem;
+        font-size: 0.5938rem;
+        letter-spacing: 0.12em;
+        width: 100%;
+      }
+      .btn__arr {
+        display: none;
+      }
+    }
+  }
+}
+
+// Nav floats over the photo (light) until the page scrolls (then solid, dark)
+.page-home .nav:not(.is-scrolled) {
+  .logo,
+  .nav__links a,
+  .nav__toggle {
+    color: var(--ivory);
+  }
+  .logo__word i {
+    color: var(--oak-200);
+  }
+  .nav__toggle {
+    border-color: rgba(247, 242, 233, 0.45);
+  }
+  .nav__toggle span {
+    background: var(--ivory);
+  }
+  .nav__links a:hover {
+    color: var(--oak-200);
+  }
+  .nav__cta {
+    background: var(--ivory);
+    border-color: var(--ivory);
+    color: var(--ink);
+  }
+}
+body.menu-open.page-home .nav {
+  .logo,
+  .nav__toggle {
+    color: var(--ink) !important;
+  }
+  .nav__toggle span {
+    background: var(--ink) !important;
+  }
+  .logo__word i {
+    color: var(--oak-700) !important;
+  }
+}
+
+// initial hidden state for the load sequence (GSAP reveals it); fail-safe reveals after 4.5s
+.motion [data-hero] {
+  opacity: 0;
+  animation: hero-failsafe 0.01s 2.5s forwards;
+}
+@keyframes hero-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+.motion .page-home .nav__bar > * {
+  opacity: 0;
+  animation: hero-failsafe 0.01s 2.5s forwards;
+}
+.motion.is-loaded .page-home .nav__bar > *,
+.motion.is-loaded [data-hero] {
+  animation: none;
+}

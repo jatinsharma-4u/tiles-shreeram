@@ -1,0 +1,46 @@
+// Light, oaky palette — warm ivory ground, oak accents, deep walnut ink.
+$ivory: #f7f2e9;
+$paper: #fbf8f2;
+$oak-50: #f3ebdd;
+$oak-100: #ede2ce;
+$oak-200: #e0cdac;
+$oak-300: #d0b68a;
+$oak-500: #b08850;
+$oak-600: #946e3a;
+$oak-700: #6f5128;
+$ink: #2a231b;
+$ink-2: #5a4f43;
+$ink-3: #7d7164;
+
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1280px;
+
+:root {
+  --ivory: #{$ivory};
+  --paper: #{$paper};
+  --oak-50: #{$oak-50};
+  --oak-100: #{$oak-100};
+  --oak-200: #{$oak-200};
+  --oak-300: #{$oak-300};
+  --oak-500: #{$oak-500};
+  --oak-600: #{$oak-600};
+  --oak-700: #{$oak-700};
+  --ink: #{$ink};
+  --ink-2: #{$ink-2};
+  --ink-3: #{$ink-3};
+  --line: rgba(42, 35, 27, 0.14);
+  --line-strong: rgba(42, 35, 27, 0.32);
+
+  --gut: clamp(16px, 4.2vw, 64px);
+  --nav-h: 84px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-display: 'DM Sans Variable', 'DM Sans', system-ui, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  @media (max-width: 991.98px) {
+    --nav-h: 68px;
+  }
+}
