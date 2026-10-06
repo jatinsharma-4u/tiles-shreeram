@@ -100,7 +100,8 @@
         linear-gradient(180deg, rgba(24, 19, 14, 0.5) 0%, rgba(24, 19, 14, 0) 24%, rgba(24, 19, 14, 0) 58%, rgba(24, 19, 14, 0.72) 100%);
       @include down($bp-lg) {
         background: linear-gradient(180deg, rgba(10, 8, 5, 0) 38%, rgba(10, 8, 5, 0.72) 66%, #0a0805 100%),
-          linear-gradient(180deg, rgba(10, 8, 5, 0.6) 0%, rgba(10, 8, 5, 0) 16%),
+          radial-gradient(75% 16% at 100% 0%, rgba(10, 8, 5, 0.75), rgba(10, 8, 5, 0)),
+          linear-gradient(180deg, rgba(10, 8, 5, 0.82) 0%, rgba(10, 8, 5, 0.35) 14%, rgba(10, 8, 5, 0) 28%),
           linear-gradient(180deg, rgba(24, 19, 14, 0.4) 0%, rgba(24, 19, 14, 0.08) 28%, rgba(24, 19, 14, 0.45) 58%, rgba(24, 19, 14, 0.94) 100%);
       }
     }
