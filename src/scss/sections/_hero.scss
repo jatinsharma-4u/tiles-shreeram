@@ -214,8 +214,16 @@
   }
 }
 
-.m-br {
-  display: none; // headline is two lines on every screen size
+.m-only {
+  display: none;
+}
+@include down($bp-md) {
+  .d-only {
+    display: none;
+  }
+  .m-only {
+    display: inline;
+  }
 }
 .hero__slide picture {
   display: block;
@@ -237,7 +245,7 @@
       white-space: nowrap;
     }
     &__title {
-      font-size: clamp(1.55rem, 7.9vw, 2.4rem);
+      font-size: clamp(1.7rem, 8.6vw, 2.6rem);
       margin-bottom: 0.85rem;
     }
     &__lead {

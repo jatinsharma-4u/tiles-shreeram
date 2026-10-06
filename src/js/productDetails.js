@@ -82,9 +82,9 @@ export function initProductPage() {
           <span class="pd__zoomhint" data-hint>Tap to zoom texture</span>
         </div>
         <div class="pd__thumbs" role="group" aria-label="Product views">
-          <button type="button" aria-pressed="true" data-thumb="tile"><img src="${p.imageSm}" alt=""><span>Surface</span></button>
-          <button type="button" aria-pressed="false" data-thumb="layout"><i style="background-image:url(${p.imageSm})"></i><span>Layout</span></button>
-          <button type="button" aria-pressed="false" data-thumb="room"><img src="images/${scene}-sm.webp" alt=""><span>In the room</span></button>
+          <button type="button" aria-pressed="true" data-thumb="tile"><span class="thumb"><img src="${p.imageSm}" alt=""></span><span class="lbl">Surface</span></button>
+          <button type="button" aria-pressed="false" data-thumb="layout"><span class="thumb"><i style="background-image:url(${p.imageSm})"></i></span><span class="lbl">Layout</span></button>
+          <button type="button" aria-pressed="false" data-thumb="room"><span class="thumb"><img src="images/${scene}-sm.webp" alt=""></span><span class="lbl">In the room</span></button>
         </div>
       </div>
 
