@@ -138,8 +138,9 @@
     background: var(--ivory);
     border-bottom-color: var(--line);
   }
-  &.is-scrolled .nav__bar {
-    height: 60px;
+  &.is-scrolled .nav__bar,
+  &.is-solid .nav__bar {
+    height: var(--nav-hs);
   }
 
   @include up($bp-lg) {

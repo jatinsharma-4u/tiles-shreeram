@@ -7,12 +7,12 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
-    padding-top: calc(var(--nav-h) + 0.75rem);
+    padding-top: calc(var(--nav-hs) + 0.75rem);
     padding-bottom: clamp(4rem, 8vw, 8rem);
     @include up($bp-lg) {
       grid-template-columns: 16.5rem minmax(0, 1fr);
       gap: clamp(2rem, 4vw, 4rem);
-      padding-top: calc(64px + 1.25rem);
+      padding-top: calc(var(--nav-hs) + 1.25rem);
     }
   }
   &__meta {
@@ -28,7 +28,7 @@
 // compact, sticky search + filter bar (mobile and desktop)
 .toolbar {
   position: sticky;
-  top: calc(var(--nav-h) - 1px);
+  top: var(--nav-hs);
   z-index: 5;
   min-width: 0;
   max-width: 100%;
@@ -40,7 +40,7 @@
   background: var(--ivory);
   border-bottom: 1px solid var(--line);
   @include up($bp-lg) {
-    top: 63px;
+    top: var(--nav-hs);
     gap: 1.5rem;
     padding-top: 0;
   }

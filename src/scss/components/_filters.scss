@@ -63,10 +63,10 @@
 
   @include up($bp-lg) {
     position: sticky;
-    top: calc(63px + 1.25rem);
+    top: calc(var(--nav-hs) + 1.25rem);
     align-self: start;
     z-index: 1;
-    max-height: calc(100vh - 63px - 2.5rem);
+    max-height: calc(100vh - var(--nav-hs) - 2.5rem);
     background: transparent;
     border-radius: 0;
     transform: none;

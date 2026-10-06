@@ -35,6 +35,7 @@ $bp-xl: 1280px;
 
   --gut: clamp(16px, 4.2vw, 64px);
   --nav-h: 84px;
+  --nav-hs: 64px; // height of the solid / scrolled nav (sticky offsets key off this)
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'DM Sans Variable', 'DM Sans', system-ui, sans-serif;
@@ -42,5 +43,6 @@ $bp-xl: 1280px;
 
   @media (max-width: 991.98px) {
     --nav-h: 68px;
+    --nav-hs: 60px;
   }
 }
